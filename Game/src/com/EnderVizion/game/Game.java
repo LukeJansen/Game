@@ -5,35 +5,50 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferInt;
 
 import javax.swing.JFrame;
 
-public class Game extends Canvas implements Runnable{
+import com.EnderVizion.game.graphics.Screen;
+
+@SuppressWarnings("unused")
+public class Game extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = 1L;
-	
-	public static final int WIDTH = 300;
-	public static final int HEIGHT = WIDTH / 16*9;
-	public int SCALE = 3;
-	
+
+	public static final int width = 300;
+	public static final int height = width / 16 * 9;
+	public int scale = 3;
+
 	private Thread thread;
 	private boolean running = false;
 	private JFrame frame;
-	
-	public Game(){
-		Dimension size = new Dimension(WIDTH*SCALE,HEIGHT*SCALE);
+
+	private Screen screen;
+
+	private BufferedImage image = new BufferedImage(width, height,
+			BufferedImage.TYPE_INT_RGB);
+	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer())
+			.getData();
+
+	public Game() {
+		Dimension size = new Dimension(width * scale, height * scale);
 		setPreferredSize(size);
-		
+
+		screen = new Screen(width, height);
+
 		frame = new JFrame();
+
 	}
-	
+
 	public synchronized void start() {
 		running = true;
 		thread = new Thread(this, "Display");
 		thread.start();
 		System.out.println("Game Started!");
 	}
-		
+
 	public synchronized void stop() {
 		running = false;
 		System.out.println("Game Stopped!");
@@ -43,33 +58,33 @@ public class Game extends Canvas implements Runnable{
 			e.printStackTrace();
 		}
 	}
-	
-	public void run(){
-		while(running){
+
+	public void run() {
+		while (running) {
 			update();
 			render();
 		}
 	}
-	
-	public void update(){
-		//TODO//
+
+	public void update() {
+
 	}
-	
-	public void render(){
+
+	public void render() {
 		BufferStrategy bs = getBufferStrategy();
-		if (bs == null){
+		if (bs == null) {
 			createBufferStrategy(3);
 			return;
 		}
-		
+
 		Graphics g = bs.getDrawGraphics();
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, getWidth(), getHeight());
 		g.dispose();
 		bs.show();
 	}
-	
-	public static void main(String[] args){
+
+	public static void main(String[] args) {
 		Game game = new Game();
 		game.frame.setResizable(false);
 		game.frame.setTitle("Game");
@@ -78,8 +93,7 @@ public class Game extends Canvas implements Runnable{
 		game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		game.frame.setLocationRelativeTo(null);
 		game.frame.setVisible(true);
-		
+
 		game.start();
 	}
 }
-
