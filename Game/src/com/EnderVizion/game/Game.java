@@ -1,14 +1,16 @@
 package com.EnderVizion.game;
 
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+
 import javax.swing.JFrame;
+
 import com.EnderVizion.game.graphics.Screen;
+import com.EnderVizion.game.input.Keyboard;
 
 @SuppressWarnings("unused")
 public class Game extends Canvas implements Runnable {
@@ -21,6 +23,7 @@ public class Game extends Canvas implements Runnable {
 
 	private Thread thread;
 	private boolean running = false;
+	private Keyboard key;
 	private JFrame frame;
 
 	private Screen screen;
@@ -35,9 +38,10 @@ public class Game extends Canvas implements Runnable {
 		setPreferredSize(size);
 
 		screen = new Screen(width, height);
-
 		frame = new JFrame();
-
+		key = new Keyboard();
+		
+		addKeyListener(key);
 	}
 
 	public synchronized void start() {
@@ -87,8 +91,9 @@ public class Game extends Canvas implements Runnable {
 	}
 	int x=0, y=0;
 	public void update() {
-		//y++;
+		key.update();
 		x++;
+		y++;
 
 	}
 
