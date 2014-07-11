@@ -1,18 +1,28 @@
 package com.EnderVizion.game.graphics;
 
+import java.util.Random;
+
 public class Screen {
 
 	private int width, height;
 	public int[] pixels;
 
+	public int[] tiles = new int[64 * 64];
+
+	private Random random = new Random();
+
 	public Screen(int width, int height) {
 		this.width = width;
 		this.height = height;
 		pixels = new int[width * height];
+
+		for (int i = 0; i < 64 * 64; i++) {
+			tiles[i] = random.nextInt(0xffffff);
+		}
 	}
-	
-	public void clear(){
-		for (int i = 0; i < pixels.length; i++){
+
+	public void clear() {
+		for (int i = 0; i < pixels.length; i++) {
 			pixels[i] = 0;
 		}
 	}
@@ -20,13 +30,11 @@ public class Screen {
 	public void render() {
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++) {
-				try{
-					pixels[x + y * width] = 0xff00ff;
+				if (x < 0 || x >= width){
+					break;
 				}
-				catch(ArrayIndexOutOfBoundsException e){
-					System.out.println("OUT OF SCREEN!");
-				}
-				
+				int tileIndex = (x >> 4) + (y >> 4) * 64;
+				pixels[x + y * width] = tiles[tileIndex];
 			}
 		}
 	}
