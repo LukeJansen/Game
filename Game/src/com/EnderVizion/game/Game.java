@@ -12,7 +12,6 @@ import javax.swing.JFrame;
 import com.EnderVizion.game.graphics.Screen;
 import com.EnderVizion.game.input.Keyboard;
 
-@SuppressWarnings("unused")
 public class Game extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = 1L;
@@ -92,9 +91,10 @@ public class Game extends Canvas implements Runnable {
 	int x=0, y=0;
 	public void update() {
 		key.update();
-		x++;
-		y++;
-
+		if (key.up) y--;
+		if (key.down) y++;
+		if (key.left) x--;
+		if (key.right) x++;
 	}
 
 	public void render() {
