@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 
 import com.EnderVizion.game.graphics.Screen;
 import com.EnderVizion.game.input.Keyboard;
+import com.EnderVizion.game.level.Level;
+import com.EnderVizion.game.level.RandomLevel;
 
 public class Game extends Canvas implements Runnable {
 
@@ -23,6 +25,7 @@ public class Game extends Canvas implements Runnable {
 	private Thread thread;
 	private boolean running = false;
 	private Keyboard key;
+	private Level level;
 	private JFrame frame;
 
 	private Screen screen;
@@ -39,6 +42,7 @@ public class Game extends Canvas implements Runnable {
 		screen = new Screen(width, height);
 		frame = new JFrame();
 		key = new Keyboard();
+		level = new RandomLevel(64, 64);
 		
 		addKeyListener(key);
 	}
@@ -93,10 +97,10 @@ public class Game extends Canvas implements Runnable {
 	
 	public void update() {
 		key.update();
-		if (key.up) y++;
-		if (key.down) y--;
-		if (key.left) x++;
-		if (key.right) x--;
+		if (key.up) y--;
+		if (key.down) y++;
+		if (key.left) x--;
+		if (key.right) x++;
 	}
 
 	public void render() {
@@ -107,7 +111,7 @@ public class Game extends Canvas implements Runnable {
 		}
 
 		screen.clear();
-		screen.render(x ,y);
+		level.render(x, y, screen);
 
 		for (int i = 0; i < pixels.length; i++) {
 			pixels[i] = screen.pixels[i];
