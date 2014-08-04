@@ -47,6 +47,7 @@ public class Game extends Canvas implements Runnable {
 		level = Screen.spawn;
 		TileCoordinate playerSpawn = new TileCoordinate(21 ,20);
 		player = new Player(playerSpawn.x(), playerSpawn.y(), key);
+		player.init(level);
 		addKeyListener(key);
 	}
 
@@ -86,7 +87,6 @@ public class Game extends Canvas implements Runnable {
 
 			if (System.currentTimeMillis() - timer > 1000) {
 				timer += 1000;
-				System.out.println(updates + " ups, " + frames + " fps");
 				frame.setTitle(title + "  |  " + updates +" ups, " + frames + " fps");
 				updates = 0;
 				frames = 0;
