@@ -5,13 +5,14 @@ import com.EnderVizion.game.level.tile.Tile;
 
 public class Level {
 
+	protected Tile[] tiles;
 	protected int width, height;
-	protected int[] tiles;
+	protected int[] tilesInt;
 	
 	public Level(int width, int height) {
 		this.width = width;
 		this.height = height;
-		tiles = new int[width * height];
+		tilesInt = new int[width * height];
 		generateLevel();
 	}
 
@@ -22,7 +23,7 @@ public class Level {
 	protected void generateLevel() {
 	}
 
-	private void loadLevel(String path) {
+	protected void loadLevel(String path) {
 	}
 
 	public void update() {
@@ -40,17 +41,20 @@ public class Level {
 
 		for (int y = y0; y < y1; y++) {
 			for (int x = x0; x < x1; x++) {
-				getTile(x, y).render(x, y, screen);
+				//getTile(x, y).render(x, y, screen);
+				if (x < 0 || y < 0 || x >= width || y >= height) Tile.voidTile.render(x, y, screen);
+				else tiles[x + y * 16].render(x, y, screen);
+				
 			}
 		}
 	}
 
 	public Tile getTile(int x, int y) {
 		if (x < 0 || y < 0 || x >= width || y >= height) return Tile.voidTile;
-		if (tiles[x + y * width] == 0) return Tile.grass;
-		if (tiles[x + y * width] == 1) return Tile.stone;
-		if (tiles[x + y * width] == 2) return Tile.grass_flower_red;
-		if (tiles[x + y * width] == 3) return Tile.grass_flower_yellow;
+		if (tilesInt[x + y * width] == 0) return Tile.grass;
+		if (tilesInt[x + y * width] == 1) return Tile.stone;
+		if (tilesInt[x + y * width] == 2) return Tile.grass_flower_red;
+		if (tilesInt[x + y * width] == 3) return Tile.grass_flower_yellow;
 		
 
 		return Tile.voidTile;
