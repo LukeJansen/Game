@@ -14,7 +14,6 @@ import com.EnderVizion.game.entity.mob.Player;
 import com.EnderVizion.game.graphics.Screen;
 import com.EnderVizion.game.input.Keyboard;
 import com.EnderVizion.game.level.Level;
-import com.EnderVizion.game.level.RandomLevel;
 import com.EnderVizion.game.level.SpawnLevel;
 
 public class Game extends Canvas implements Runnable {
@@ -46,7 +45,7 @@ public class Game extends Canvas implements Runnable {
 		frame = new JFrame();
 		key = new Keyboard();
 		level = new SpawnLevel("/textures/level.png");
-		player = new Player(key);
+		player = new Player(8 * 16, 8 * 16, key);
 		addKeyListener(key);
 	}
 
