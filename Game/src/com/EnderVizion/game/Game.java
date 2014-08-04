@@ -24,6 +24,7 @@ public class Game extends Canvas implements Runnable {
 	public static int height = width / 16 * 9;
 	public static int scale = 3;
 	public static String title = "Game";
+	public int frames;
 	
 	private Thread thread;
 	private JFrame frame;
@@ -67,7 +68,7 @@ public class Game extends Canvas implements Runnable {
 		long timer = System.currentTimeMillis();
 		final double ns = 1000000000.0 / 60.0;
 		double delta = 0;
-		int frames = 0;
+		frames = 0;
 		int updates = 0;
 		requestFocus();
 		while (running) {
