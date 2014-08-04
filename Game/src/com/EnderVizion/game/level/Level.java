@@ -30,8 +30,8 @@ public class Level {
 	public void update() {
 	}
 
-	private void time() {
-	}
+	//private void time() {
+	//}
 	
 	public void render(int xScroll, int yScroll, Screen screen) {
 		screen.setOffset(xScroll, yScroll);
@@ -47,17 +47,18 @@ public class Level {
 		}
 	}
 	
-	//Stone = 0xFF404040
-	//Grass = 0xFF00FF00
-	//RFlower = 0xFFFF0000
-	//YFlower = 0xFFFFD800
 	public Tile getTile(int x, int y) {
-		if (x < 0 || y < 0 || x >= width || y >= height) return Tile.voidTile;
-		if (tiles[x + y * width] == 0xFF00FF00) return Tile.grass;
-		if (tiles[x + y * width] == 0xFF404040) return Tile.stone;
-		if (tiles[x + y * width] == 0xFFFF0000) return Tile.grass_flower_red;
-		if (tiles[x + y * width] == 0xFFFFD800) return Tile.grass_flower_yellow;
-		return Tile.voidTile;
+		if (x < 0 || y < 0 || x >= width || y >= height) return Tile.generic_voidTile;
+		if (tiles[x + y * width] == Tile.col_spawn_grass) return Tile.spawn_grass;
+		if (tiles[x + y * width] == Tile.col_spawn_stone) return Tile.spawn_stone;
+		if (tiles[x + y * width] == Tile.col_spawn_spawnWalls) return Tile.spawn_spawnWalls;
+		if (tiles[x + y * width] == Tile.col_spawn_rflower) return Tile.spawn_grass_flower_red;
+		if (tiles[x + y * width] == Tile.col_spawn_yflower) return Tile.spawn_grass_flower_yellow;
+		if (tiles[x + y * width] == Tile.col_spawn_floor) return Tile.spawn_floor;
+		if (tiles[x + y * width] == Tile.col_spawn_hedge) return Tile.spawn_hedge;
+		if (tiles[x + y * width] == Tile.col_spawn_spawnPad) return Tile.spawn_spawnPad;
+		if (tiles[x + y * width] == Tile.col_spawn_crackedWalls) return Tile.spawn_crackedWalls;
+		return Tile.generic_voidTile;
 	}
 }
 

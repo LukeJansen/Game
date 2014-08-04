@@ -44,8 +44,8 @@ public class Game extends Canvas implements Runnable {
 		screen = new Screen(width, height);
 		frame = new JFrame();
 		key = new Keyboard();
-		level = new SpawnLevel("/textures/level.png");
-		player = new Player(8 * 16, 8 * 16, key);
+		level = new SpawnLevel("/Levels/SpawnWorld.png");
+		player = new Player(21 * 16, 20 * 16, key);
 		addKeyListener(key);
 	}
 
