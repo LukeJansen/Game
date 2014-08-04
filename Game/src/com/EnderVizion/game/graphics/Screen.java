@@ -2,12 +2,16 @@ package com.EnderVizion.game.graphics;
 
 import java.util.Random;
 
+import com.EnderVizion.game.level.Level;
+import com.EnderVizion.game.level.SpawnLevel;
 import com.EnderVizion.game.level.tile.Tile;
 
 public class Screen {
 
 	public int width, height;
 	public int[] pixels;
+	
+	public static Level spawn = new SpawnLevel("/levels/SpawnWorld.png");
 
 	public final int MAP_SIZE = 64;
 	public final int MAP_SIZE_MASK = MAP_SIZE - 1;

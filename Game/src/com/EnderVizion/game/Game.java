@@ -14,7 +14,7 @@ import com.EnderVizion.game.entity.mob.Player;
 import com.EnderVizion.game.graphics.Screen;
 import com.EnderVizion.game.input.Keyboard;
 import com.EnderVizion.game.level.Level;
-import com.EnderVizion.game.level.SpawnLevel;
+import com.EnderVizion.game.level.TileCoordinate;
 
 public class Game extends Canvas implements Runnable {
 
@@ -44,8 +44,9 @@ public class Game extends Canvas implements Runnable {
 		screen = new Screen(width, height);
 		frame = new JFrame();
 		key = new Keyboard();
-		level = new SpawnLevel("/Levels/SpawnWorld.png");
-		player = new Player(21 * 16, 20 * 16, key);
+		level = Screen.spawn;
+		TileCoordinate playerSpawn = new TileCoordinate(21 ,20);
+		player = new Player(playerSpawn.x(), playerSpawn.y(), key);
 		addKeyListener(key);
 	}
 
