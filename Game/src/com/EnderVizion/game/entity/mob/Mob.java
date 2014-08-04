@@ -1,7 +1,6 @@
 package com.EnderVizion.game.entity.mob;
 
 import com.EnderVizion.game.entity.Entity;
-import com.EnderVizion.game.graphics.Screen;
 import com.EnderVizion.game.graphics.Sprite;
 
 public abstract class Mob extends Entity{

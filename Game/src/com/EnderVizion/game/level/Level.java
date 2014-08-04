@@ -49,8 +49,10 @@ public class Level {
 		if (x < 0 || y < 0 || x >= width || y >= height) return Tile.voidTile;
 		if (tiles[x + y * width] == 0) return Tile.grass;
 		if (tiles[x + y * width] == 1) return Tile.stone;
-		if (tiles[x + y * width] == 2) return Tile.water;
-		if (tiles[x + y * width] == 3) return Tile.wood;
+		if (tiles[x + y * width] == 2) return Tile.grass_flower_red;
+		if (tiles[x + y * width] == 3) return Tile.grass_flower_yellow;
+		
+
 		return Tile.voidTile;
 	}
 }
