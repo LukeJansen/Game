@@ -2,6 +2,13 @@ package com.EnderVizion.game.level.tile;
 
 import com.EnderVizion.game.graphics.Screen;
 import com.EnderVizion.game.graphics.Sprite;
+import com.EnderVizion.game.level.tile.spawnLevel.SpawnFloorTile;
+import com.EnderVizion.game.level.tile.spawnLevel.SpawnFlowerTile;
+import com.EnderVizion.game.level.tile.spawnLevel.SpawnGrassTile;
+import com.EnderVizion.game.level.tile.spawnLevel.SpawnHedgeTile;
+import com.EnderVizion.game.level.tile.spawnLevel.SpawnPadTile;
+import com.EnderVizion.game.level.tile.spawnLevel.SpawnStoneTile;
+import com.EnderVizion.game.level.tile.spawnLevel.SpawnWallsTile;
 
 public class Tile {
 

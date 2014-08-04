@@ -1,11 +1,12 @@
-package com.EnderVizion.game.level.tile;
+package com.EnderVizion.game.level.tile.spawnLevel;
 
 import com.EnderVizion.game.graphics.Screen;
 import com.EnderVizion.game.graphics.Sprite;
+import com.EnderVizion.game.level.tile.Tile;
 
-public class SpawnPadTile extends Tile {
+public class SpawnGrassTile extends Tile {
 
-	public SpawnPadTile(Sprite sprite) {
+	public SpawnGrassTile(Sprite sprite) {
 		super(sprite);
 	}
 
