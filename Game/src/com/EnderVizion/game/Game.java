@@ -3,6 +3,7 @@ package com.EnderVizion.game;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -13,6 +14,7 @@ import javax.swing.JFrame;
 import com.EnderVizion.game.entity.mob.Player;
 import com.EnderVizion.game.graphics.Screen;
 import com.EnderVizion.game.input.Keyboard;
+import com.EnderVizion.game.input.Mouse;
 import com.EnderVizion.game.level.Level;
 import com.EnderVizion.game.level.TileCoordinate;
 
@@ -48,7 +50,11 @@ public class Game extends Canvas implements Runnable {
 		TileCoordinate playerSpawn = new TileCoordinate(21 ,20);
 		player = new Player(playerSpawn.x(), playerSpawn.y(), key);
 		player.init(level);
+		
+		Mouse mouse = new Mouse();
 		addKeyListener(key);
+		addMouseListener(mouse);
+		addMouseMotionListener(mouse);
 	}
 
 	public synchronized void start() {
@@ -118,9 +124,9 @@ public class Game extends Canvas implements Runnable {
 		}
 
 		Graphics g = bs.getDrawGraphics();
-		g.setColor(Color.BLACK);
-		g.fillRect(0, 0, getWidth(), getHeight());
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
+		g.setColor(Color.WHITE);
+		g.setFont(new Font("Verdana", 0, 50));
 		g.dispose();
 		bs.show();
 	}
