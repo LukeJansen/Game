@@ -1,8 +1,10 @@
 package com.EnderVizion.game.entity.mob;
 
+import com.EnderVizion.game.Game;
 import com.EnderVizion.game.graphics.Screen;
 import com.EnderVizion.game.graphics.Sprite;
 import com.EnderVizion.game.input.Keyboard;
+import com.EnderVizion.game.input.Mouse;
 
 public class Player extends Mob{
 	
@@ -36,8 +38,20 @@ public class Player extends Mob{
 		} else{
 			walking = false;
 		}
+		
+		updateShooting();
 	}
 	
+	private void updateShooting() {	
+		if(Mouse.getButton() == 1){
+			double dx = Mouse.getX() - Game.getWindowWidth() / 2;
+			double dy = Mouse.getY() - Game.getWindowWidth() / 2;
+			double dir = Math.atan2(dy, dx);
+			
+			shoot(x, y, dir);
+		}		
+	}
+
 	public void render(Screen screen){
 		int flip = 0;
 		if (dir == 0) {

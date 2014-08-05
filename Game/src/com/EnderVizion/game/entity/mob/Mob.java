@@ -1,13 +1,20 @@
 package com.EnderVizion.game.entity.mob;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.EnderVizion.game.entity.Entity;
+import com.EnderVizion.game.entity.projectile.Projectile;
+import com.EnderVizion.game.entity.projectile.ShirukenProjectile;
 import com.EnderVizion.game.graphics.Sprite;
 
 public abstract class Mob extends Entity{
-	
+
 	protected Sprite sprite;
 	protected int dir = 2;
 	protected boolean moving  = false;
+	
+	protected List<Projectile> projectiles = new ArrayList<Projectile>();
 	
 	public void move(int xa, int ya){
 		if (xa != 0 && ya != 0){
@@ -28,6 +35,12 @@ public abstract class Mob extends Entity{
 	}
 	
 	public void update(){
+	}
+	
+	protected void shoot(int x, int y, double dir){
+		Projectile p = new ShirukenProjectile(x, y, dir);
+		projectiles.add(p);
+		level.add(p);
 	}
 	
 	private boolean collision(int xa, int ya){
