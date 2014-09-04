@@ -37,10 +37,12 @@ public abstract class Mob extends Entity{
 	public void update(){
 	}
 	
-	protected void shoot(int x, int y, double dir){
-		Projectile p = new ShirukenProjectile(x, y, dir);
-		projectiles.add(p);
-		level.add(p);
+	protected void shoot(int x, int y, double dir, int time){
+		if(time==1){
+			Projectile p = new ShirukenProjectile(x, y, dir);
+			projectiles.add(p);
+			level.add(p);
+		}
 	}
 	
 	private boolean collision(int xa, int ya){
