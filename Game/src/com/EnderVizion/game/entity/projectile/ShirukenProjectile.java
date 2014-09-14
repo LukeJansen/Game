@@ -7,11 +7,11 @@ public class ShirukenProjectile extends Projectile{
 
 	public ShirukenProjectile(int x, int y, double dir) {
 		super(x, y, dir);
-		speed = 4;
 		range = 200;
+		speed = 4;
 		damage = 20;
-		sprite = Sprite.generic_shiruken;
 		rateOfFire = 15;
+		sprite = Sprite.generic_shiruken;
 		nx = speed * Math.cos(angle);
 		nx = speed * Math.sin(angle);
 	}
@@ -26,6 +26,6 @@ public class ShirukenProjectile extends Projectile{
 	}
 	
 	public void render(Screen screen){
-		screen.renderTile(x, y, sprite.generic_shiruken);
+		screen.renderTile(x, y, sprite);
 	}
 }

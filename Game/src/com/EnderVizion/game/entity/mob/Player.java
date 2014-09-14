@@ -10,7 +10,6 @@ public class Player extends Mob{
 	
 	private Keyboard input;
 	private Sprite sprite = Sprite.player_forward;
-	private int time = 0;
 	private int anim = 0;
 	private boolean walking = false;
 	
@@ -46,13 +45,11 @@ public class Player extends Mob{
 	private void updateShooting() {	
 		if(Mouse.getButton() == 1){
 			double dx = Mouse.getX() - Game.getWindowWidth() / 2;
-			double dy = Mouse.getY() - Game.getWindowWidth() / 2;
+			double dy = Mouse.getY() - Game.getWindowHeight() / 2;
 			double dir = Math.atan2(dy, dx);
-			time++;
-			if(time == 10) time = 0;
-			
-			shoot(x, y, dir, time);
-		}else time = 0;		
+
+			shoot(x, y, dir);
+		}	
 	}
 
 	public void render(Screen screen){

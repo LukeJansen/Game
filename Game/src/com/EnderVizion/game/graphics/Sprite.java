@@ -20,8 +20,6 @@ public class Sprite {
 	public static Sprite generic_voidSprite = new Sprite(16, 4, 0, SpriteSheet.tiles);
 	public static Sprite generic_shiruken = new Sprite(16, 6, 0, SpriteSheet.tiles);
 	public static Sprite generic_shiruken_1 = new Sprite(16, 7, 0, SpriteSheet.tiles);
-	public static Sprite generic_penis = new Sprite(16, 5, 0, SpriteSheet.tiles);
-	public static Sprite generic_jizz = new Sprite(16, 3, 0, SpriteSheet.spawn_level);
 	
 	public static Sprite player_forward = new Sprite(32, 0, 5, SpriteSheet.tiles);
 	public static Sprite player_back = new Sprite(32, 2, 5, SpriteSheet.tiles);
