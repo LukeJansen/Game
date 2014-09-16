@@ -13,7 +13,7 @@ public class ShirukenProjectile extends Projectile{
 		rateOfFire = 15;
 		sprite = Sprite.generic_shiruken;
 		nx = speed * Math.cos(angle);
-		nx = speed * Math.sin(angle);
+		ny = speed * Math.sin(angle);
 	}
 	
 	public void update(){
