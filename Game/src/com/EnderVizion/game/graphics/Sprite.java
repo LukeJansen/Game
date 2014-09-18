@@ -19,7 +19,6 @@ public class Sprite {
 	
 	public static Sprite generic_voidSprite = new Sprite(16, 4, 0, SpriteSheet.tiles);
 	public static Sprite generic_shiruken = new Sprite(16, 6, 0, SpriteSheet.tiles);
-	public static Sprite generic_shiruken_1 = new Sprite(16, 7, 0, SpriteSheet.tiles);
 	
 	public static Sprite player_forward = new Sprite(32, 0, 5, SpriteSheet.tiles);
 	public static Sprite player_back = new Sprite(32, 2, 5, SpriteSheet.tiles);
@@ -34,6 +33,7 @@ public class Sprite {
 	public static Sprite player_back_1 = new Sprite(32, 2, 6, SpriteSheet.tiles);
 	public static Sprite player_back_2 = new Sprite(32, 2, 7, SpriteSheet.tiles);
 
+	public static Sprite projectile_shiruken = new Sprite(16, 0, 0, SpriteSheet.projectile_shiruken);
 	public Sprite(int size, int x, int y, SpriteSheet sheet) {
 		SIZE = size;
 		pixels = new int[SIZE * SIZE];

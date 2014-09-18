@@ -17,6 +17,7 @@ public abstract class Mob extends Entity{
 	protected List<Projectile> projectiles = new ArrayList<Projectile>();
 	
 	public void move(int xa, int ya){
+		System.out.println(projectiles.size());
 		if (xa != 0 && ya != 0){
 			move(xa, 0);
 			move(0, ya);

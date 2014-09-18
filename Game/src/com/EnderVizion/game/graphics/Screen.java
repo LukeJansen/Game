@@ -2,6 +2,7 @@ package com.EnderVizion.game.graphics;
 
 import java.util.Random;
 
+import com.EnderVizion.game.entity.projectile.Projectile;
 import com.EnderVizion.game.level.Level;
 import com.EnderVizion.game.level.SpawnLevel;
 import com.EnderVizion.game.level.tile.Tile;
@@ -11,7 +12,7 @@ public class Screen {
 	public int width, height;
 	public int[] pixels;
 	
-	public static Level spawn = new SpawnLevel("/levels/SpawnWorld.png");
+	public static Level spawn = new SpawnLevel("/Levels/SpawnWorld.png");
 
 	public final int MAP_SIZE = 64;
 	public final int MAP_SIZE_MASK = MAP_SIZE - 1;
@@ -61,16 +62,16 @@ public class Screen {
 		}
 	}
 	
-	public void renderTile(int xp, int yp, Sprite sprite) {
+	public void renderProjectile(int xp, int yp, Projectile p) {
 		xp -= xOffset;
 		yp -= yOffset;
-		for (int y = 0; y < sprite.SIZE; y++) {
+		for (int y = 0; y < p.getSpriteSize(); y++) {
 			int ya = y + yp;
-			for (int x = 0; x < sprite.SIZE; x++) {
+			for (int x = 0; x < p.getSpriteSize(); x++) {
 				int xa = x + xp;
-				if (xa < -sprite.SIZE || xa >= width || ya < 0 || ya >= height) break;
+				if (xa < -p.getSpriteSize() || xa >= width || ya < 0 || ya >= height) break;
 				if (xa < 0) xa = 0;
-				int col = sprite.pixels[x + y * sprite.SIZE];
+				int col = p.getSprite().pixels[x + y * p.getSpriteSize()];
 				if (col != 0xffff00ff) pixels[xa + ya * width] = col;
 			}
 		}

@@ -1,6 +1,7 @@
 package com.EnderVizion.game.entity.mob;
 
 import com.EnderVizion.game.Game;
+import com.EnderVizion.game.entity.projectile.Projectile;
 import com.EnderVizion.game.graphics.Screen;
 import com.EnderVizion.game.graphics.Sprite;
 import com.EnderVizion.game.input.Keyboard;
@@ -38,10 +39,17 @@ public class Player extends Mob{
 		} else{
 			walking = false;
 		}
-		
+		clear();
 		updateShooting();
 	}
 	
+	private void clear() {
+		for (int i = 0; i < projectiles.size(); i++){
+			Projectile p = projectiles.get(i);
+			if(p.isRemoved()) projectiles.remove(i);
+		}
+	}
+
 	private void updateShooting() {	
 		if(Mouse.getButton() == 1){
 			double dx = Mouse.getX() - Game.getWindowWidth() / 2;
