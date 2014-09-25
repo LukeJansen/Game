@@ -1,8 +1,5 @@
 package com.EnderVizion.game.entity.mob;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.EnderVizion.game.entity.Entity;
 import com.EnderVizion.game.entity.projectile.Projectile;
 import com.EnderVizion.game.entity.projectile.ShirukenProjectile;
@@ -14,10 +11,7 @@ public abstract class Mob extends Entity{
 	protected int dir = 2;
 	protected boolean moving  = false;
 	
-	protected List<Projectile> projectiles = new ArrayList<Projectile>();
-	
 	public void move(int xa, int ya){
-		System.out.println(projectiles.size());
 		if (xa != 0 && ya != 0){
 			move(xa, 0);
 			move(0, ya);
@@ -40,10 +34,8 @@ public abstract class Mob extends Entity{
 	
 	protected void shoot(int x, int y, double dir){
 		//dir *= 180 / Math.PI;
-		//System.out.println(dir);
 		Projectile p = new ShirukenProjectile(x, y, dir);
-		projectiles.add(p);
-		level.add(p);
+		level.addProjectile(p);
 
 	}
 	

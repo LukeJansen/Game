@@ -1,5 +1,7 @@
 package com.EnderVizion.game.entity.projectile;
 
+import java.util.Random;
+
 import com.EnderVizion.game.entity.Entity;
 import com.EnderVizion.game.graphics.Sprite;
 
@@ -11,7 +13,8 @@ public abstract class Projectile extends Entity {
 	protected double x, y;
 	protected double nx, ny;
 	protected double distance;
-	protected double speed, rateOfFire, range, damage;
+	protected double speed, range, damage;
+	protected final Random random = new Random();
 	
 	public Projectile(int x, int y, double dir){
 		xOrigin = x;
