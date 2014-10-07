@@ -55,7 +55,7 @@ public class Level {
 		boolean solid = false;
 		for(int c =0; c < 4; c++){
 			int xt = (((int) x + (int) xa) + c % 2 * size * 2 - 12) / 16;
-			int yt = (((int) y + (int) ya) + c / 2 * size / 2 + 5) / 16;
+			int yt = (((int) y + (int) ya) + c / 2 * size / 2 - 10) / 16;
 			if(getTile(xt, yt).solid()) solid = true;
 		}
 		return solid;

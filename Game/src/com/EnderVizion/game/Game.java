@@ -8,12 +8,14 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.util.Random;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import com.EnderVizion.game.entity.mob.Player;
+import com.EnderVizion.game.entity.projectile.ShirukenProjectile;
 import com.EnderVizion.game.graphics.Screen;
+import com.EnderVizion.game.graphics.Sprite;
 import com.EnderVizion.game.input.Keyboard;
 import com.EnderVizion.game.input.Mouse;
 import com.EnderVizion.game.level.Level;
@@ -114,6 +116,8 @@ public class Game extends Canvas implements Runnable {
 		key.update();
 		player.update();
 		level.update();
+		if (key.l) ShirukenProjectile.FIRE_RATE = 0;
+		if (!key.l) ShirukenProjectile.FIRE_RATE = 10;
 	}
 
 	public void render() {
@@ -128,7 +132,7 @@ public class Game extends Canvas implements Runnable {
 		int yScroll = player.y - screen.height / 2;
 		level.render(xScroll ,yScroll , screen);
 		player.render(screen);
-
+		
 		for (int i = 0; i < pixels.length; i++) {
 			pixels[i] = screen.pixels[i];
 		}

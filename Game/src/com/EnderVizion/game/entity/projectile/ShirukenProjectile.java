@@ -5,7 +5,7 @@ import com.EnderVizion.game.graphics.Sprite;
 
 public class ShirukenProjectile extends Projectile{
 	
-	public static final int FIRE_RATE = 10; // Higher is slower.
+	public static int FIRE_RATE = 10; // Higher is slower.
 
 	public ShirukenProjectile(int x, int y, double dir) {
 		super(x, y, dir);

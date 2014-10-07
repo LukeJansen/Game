@@ -14,6 +14,7 @@ public class SpriteSheet {
 	public static SpriteSheet tiles = new SpriteSheet("/textures/Sheets/spritesheet.png", 256);
 	public static SpriteSheet spawn_level = new SpriteSheet("/textures/Sheets/SpawnLevelSheet.png", 64);
 	public static SpriteSheet projectile_shiruken = new SpriteSheet("/textures/Sheets/Projectiles/Shiruken.png", 48);
+	public static SpriteSheet player = new SpriteSheet("/textures/Sheets/Players/Player.png", 96);
 	
 	public SpriteSheet(String path, int size) {
 		this.path = path;
