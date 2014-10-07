@@ -1,6 +1,7 @@
 package com.EnderVizion.game.entity.mob;
 
 import com.EnderVizion.game.entity.Entity;
+import com.EnderVizion.game.entity.particle.Particle;
 import com.EnderVizion.game.entity.projectile.Projectile;
 import com.EnderVizion.game.entity.projectile.ShirukenProjectile;
 import com.EnderVizion.game.graphics.Sprite;

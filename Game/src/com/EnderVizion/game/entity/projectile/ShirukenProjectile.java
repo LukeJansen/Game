@@ -1,5 +1,6 @@
 package com.EnderVizion.game.entity.projectile;
 
+import com.EnderVizion.game.entity.particle.Particle;
 import com.EnderVizion.game.graphics.Screen;
 import com.EnderVizion.game.graphics.Sprite;
 
@@ -19,7 +20,11 @@ public class ShirukenProjectile extends Projectile{
 	
 	public void update(){
 		move();
-		if (level.tileCollision(x, y, nx, ny, 15)) remove();
+		if (level.tileCollision(x, y, nx, ny, 15)){
+			Particle p = new Particle((int) x, (int) y, 50, 500); 
+			level.add(p);
+			remove();
+		}
 	}
 	
 	protected void move(){
